@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Aplications.Interfaces\TestMasGlobal.CalculatedSalary.Aplications.Interfaces.csproj" />
+  </ItemGroup>
 
 </Project>

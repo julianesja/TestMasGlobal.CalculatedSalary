@@ -1,7 +1,7 @@
 ﻿namespace TestMasGlobal.CalculatedSalary.Domain.Entities
 {
-    public interface BaseEntity
+    public abstract class BaseEntity
     {
-        int Id { get; set; }
+        public int Id { get; set; }
     }
 }

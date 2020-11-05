@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Domain.Interfaces\TestMasGlobal.CalculatedSalary.Domain.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
