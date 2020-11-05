@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using TestMasGlobal.CalculatedSalary.Aplications.Interfaces.Dto;
 using TestMasGlobal.CalculatedSalary.Infra.EnumConst.Exceptions;
 
@@ -14,6 +15,29 @@ namespace TestMasGlobal.CalculatedSalary.Aplications.Services.Helpers
             try
             {
                 response.Entidad = action();
+                response.Exitoso = true;
+            }
+            catch (ExceptionsManagement be)
+            {
+                AdministrarErrorTry(be, response);
+            }
+            catch (Exception ex)
+            {
+                //Core.Logger.Current.Error(ex.Message);
+                response.ExcepcionNoControlada = true;
+                response.MensajeError = ex.InnerException?.Message ?? ex.Message;
+                //response.MensajeError+= ex.InnerException?.StackTrace ?? ex.StackTrace;
+            }
+
+            return response;
+        }
+
+        public async static Task<Response<T>> TryAsync<T>(Func<Task<T>> action)
+        {
+            var response = new Response<T>();
+            try
+            {
+                response.Entidad = await action();
                 response.Exitoso = true;
             }
             catch (ExceptionsManagement be)

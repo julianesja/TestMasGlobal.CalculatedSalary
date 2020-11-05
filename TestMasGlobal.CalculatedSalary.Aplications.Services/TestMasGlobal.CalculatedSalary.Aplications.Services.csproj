@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Aplications.Interfaces\TestMasGlobal.CalculatedSalary.Aplications.Interfaces.csproj" />
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Domain.Interfaces\TestMasGlobal.CalculatedSalary.Domain.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
