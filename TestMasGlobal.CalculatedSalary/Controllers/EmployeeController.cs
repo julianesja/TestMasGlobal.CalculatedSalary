@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TestMasGlobal.CalculatedSalary.Aplications.Interfaces.Interfaces;
 
 namespace TestMasGlobal.CalculatedSalary.Controllers
 {
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
+
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeApplication employeeApplication;
