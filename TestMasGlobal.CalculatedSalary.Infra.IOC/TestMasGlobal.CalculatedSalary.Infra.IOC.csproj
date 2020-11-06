@@ -1,7 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="Castle.Windsor" Version="5.0.1" />
+    <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Aplications.Interfaces\TestMasGlobal.CalculatedSalary.Aplications.Interfaces.csproj" />
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Aplications.Services\TestMasGlobal.CalculatedSalary.Aplications.Services.csproj" />
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Domain.Interfaces\TestMasGlobal.CalculatedSalary.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Domain.Services\TestMasGlobal.CalculatedSalary.Domain.Services.csproj" />
+    <ProjectReference Include="..\TestMasGlobal.CalculatedSalary.Infra.Data\TestMasGlobal.CalculatedSalary.Infra.Data.csproj" />
+  </ItemGroup>
 
 </Project>

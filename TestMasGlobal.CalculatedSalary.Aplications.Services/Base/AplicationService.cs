@@ -8,7 +8,7 @@ using TestMasGlobal.CalculatedSalary.Domain.Interfaces.Base;
 
 namespace TestMasGlobal.CalculatedSalary.Aplications.Services.Base
 {
-    public class AplicationService<Entity> : IAplicationService<Entity> where Entity : BaseEntity
+    public class AplicationService<Entity> : IBaseAplication<Entity> where Entity : BaseEntity
     {
         private readonly IBaseService<Entity> baseService;
 

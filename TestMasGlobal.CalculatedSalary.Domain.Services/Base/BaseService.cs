@@ -14,14 +14,14 @@ namespace TestMasGlobal.CalculatedSalary.Domain.Services.Base
         {
             this.baseRepository = baseRepository;
         }
-        public virtual Task<Entity> GetById(int id)
+        public async virtual Task<Entity> GetById(int id)
         {
-           return this.baseRepository.GetById(id);
+           return await this.baseRepository.GetById(id);
         }
 
-        public virtual Task<IEnumerable<Entity>> GetAll()
+        public async virtual Task<IEnumerable<Entity>> GetAll()
         {
-            return this.baseRepository.GetAll();
+            return await this.baseRepository.GetAll();
         }
     }
 }
