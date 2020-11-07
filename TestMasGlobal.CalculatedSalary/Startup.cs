@@ -44,6 +44,8 @@ namespace TestMasGlobal.CalculatedSalary
             .AddDefaultTokenProviders()
             .AddEntityFrameworkStores<ApplicationContext>();
 
+
+
             services.AddAuthentication()
                 .AddCookie()
                 .AddJwtBearer(cfg =>
@@ -56,6 +58,13 @@ namespace TestMasGlobal.CalculatedSalary
                             Encoding.UTF8.GetBytes(this.Configuration["Tokens:Key"]))
                     };
                 });
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<ApplicationContext>(opt => opt.UseInMemoryDatabase(databaseName: "database_name"));
             services.AddScoped<ApplicationContext>();
@@ -75,6 +84,8 @@ namespace TestMasGlobal.CalculatedSalary
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 
