@@ -24,7 +24,7 @@ namespace TestMasGlobal.CalculatedSalary.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result = await this.employeeApplication.GetAll();
+            var result = await this.employeeApplication.GetEmployeeAll();
             if (result.Exitoso)
             {
                 return Ok(result.Entidad);
@@ -37,7 +37,7 @@ namespace TestMasGlobal.CalculatedSalary.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
-            var result = await this.employeeApplication.GetById(id);
+            var result = await this.employeeApplication.GetEmployee(id);
             if (result.Exitoso)
             {
                 return Ok(result.Entidad);

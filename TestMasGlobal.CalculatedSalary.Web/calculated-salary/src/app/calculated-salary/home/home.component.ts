@@ -13,7 +13,7 @@ import {Router} from "@angular/router"
 export class HomeComponent implements OnInit {
   public form: FormGroup;
   public dataSource: EmployeeModel[];
-  public displayedColumns: string[] = ['name', 'contractTypeName', 'roleId', 'roleName', 'roleDescription', 'hourlySalary', 'monthlySalary'];
+  public displayedColumns: string[] = ['name', 'contractTypeName', 'roleId', 'roleName', 'roleDescription', 'hourlySalary', 'monthlySalary', 'annualSalary'];
   constructor(private fb: FormBuilder,
      private employeeService:EmployeeService,
       private sesionService:SesionService,
@@ -35,7 +35,12 @@ export class HomeComponent implements OnInit {
     }else{
       this.employeeService.get(this.form.value.employeid).subscribe(
         data => {
-          this.dataSource = [data];
+          if(data){
+            this.dataSource = [data];
+          }else{
+            alert("No results found");
+          }
+          
         },
         error => {console.log(error);}
       );

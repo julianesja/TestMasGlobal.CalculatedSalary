@@ -8,4 +8,5 @@ export interface EmployeeModel {
     monthlySalary: number;
     annualSalary: number;
     
+    
 }
