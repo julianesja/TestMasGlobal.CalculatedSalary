@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { LoginService } from './shared/services/login.service';
 import {LoginModel} from './shared/model/login.model';
+import { SesionService } from './shared/services/sesion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,10 @@ import {LoginModel} from './shared/model/login.model';
 })
 export class LoginComponent implements OnInit {
   public form: FormGroup;
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(private fb: FormBuilder
+            , private loginService: LoginService
+            , private sesionService: SesionService
+            ,private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -28,7 +33,12 @@ export class LoginComponent implements OnInit {
       };
       this.loginService.post(login).subscribe(
         data => {
-          console.log(data);
+          this.sesionService.saveLocalUser(data);
+          this.router.navigate(['/home'])
+        },
+        error => {
+          alert(error.error.message);
+          
         }
       );
     }

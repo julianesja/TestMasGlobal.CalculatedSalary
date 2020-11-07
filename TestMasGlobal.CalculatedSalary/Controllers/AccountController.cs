@@ -62,10 +62,18 @@
 
                         return this.Created(string.Empty, results);
                     }
+                    else
+                    {
+                        return BadRequest(new { message = "User or password incorrect" });
+                    }
+                }
+                else
+                {
+                    return BadRequest( new { message = "User doesn't exist in the database" });
                 }
             }
 
-            return this.BadRequest();
+            return BadRequest();
         }
     }
 }

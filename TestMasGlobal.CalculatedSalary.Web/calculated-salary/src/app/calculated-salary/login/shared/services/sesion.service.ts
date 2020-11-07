@@ -21,7 +21,7 @@ export class SesionService {
         this.storage.removeItem(key);
     }
 
-    CLOSESession() {
+    CloseSession() {
         this.removeItem(environment.userKey);
     }
 
